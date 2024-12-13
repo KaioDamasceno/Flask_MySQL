@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 
-users_bp = Blueprint("users", __name__, template_folder="../templates/users")
+users_bp = Blueprint("users", __name__, template_folder="../templates")
 
 # Simulação de usuários (substituir com consulta ao banco de dados)
 usuarios = [
@@ -10,7 +10,7 @@ usuarios = [
 
 @users_bp.route("/", methods=["GET"])
 def listar_usuarios():
-    return render_template("lista.html", usuarios=usuarios)
+    return render_template("index.html", usuarios=usuarios)
 
 @users_bp.route("/editar/<int:user_id>", methods=["GET", "POST"])
 def editar_usuario(user_id):
