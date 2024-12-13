@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
@@ -30,7 +30,7 @@ def create_app():
     # Página inicial
     @app.route("/")
     def index():
-        return "Bem-vindo à Loja Virtual!"
+        return "gap"
 
     return app
 
