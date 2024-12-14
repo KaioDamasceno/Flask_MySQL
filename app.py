@@ -9,7 +9,7 @@ from database import db, init_db
 
 
 
-
+ # Registro de Blueprints (rotas modularizadas)
 app = Flask(__name__)
 app.register_blueprint(auth_bp, url_prefix="/auth")
 app.register_blueprint(produtos_bp, url_prefix="/produtos")

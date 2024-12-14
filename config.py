@@ -1,10 +1,6 @@
-# config.py
 import os
 
 class Config:
-    """Configurações padrão para a aplicação."""
-    SECRET_KEY = os.environ.get("SECRET_KEY", "default_secret_key")
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DATABASE_URL", "sqlite:///db.sqlite3"
-    )  # Banco padrão SQLite
+    SECRET_KEY = os.environ.get("SECRET_KEY", "uma_chave_secreta_muito_segura")  # Substitua por uma chave única e forte
+    SQLALCHEMY_DATABASE_URI = "sqlite:///db.sqlite3"  # Banco de dados SQLite (ou ajuste conforme necessário)
     SQLALCHEMY_TRACK_MODIFICATIONS = False

@@ -10,7 +10,7 @@ usuarios = [
 
 @users_bp.route("/", methods=["GET"])
 def listar_usuarios():
-    return render_template("index.html", usuarios=usuarios)
+    return render_template("", usuarios=usuarios)
 
 @users_bp.route("/editar/<int:user_id>", methods=["GET", "POST"])
 def editar_usuario(user_id):
