@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Carrinho</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+</head>
+<body>
+    <header>
+        <h1>Seu Carrinho</h1>
+    </header>
+    <main>
+        {% if carrinho %}
+        <ul>
+            {% for item in carrinho %}
+            <li>
+                <h2>{{ item.produto.nome }}</h2>
+                <p>Preço Unitário: R$ {{ item.produto.preco }}</p>
+                <p>Quantidade: {{ item.quantidade }}</p>
+                <p>Subtotal: R$ {{ item.produto.preco * item.quantidade }}</p>
+                <form method="POST" action="{{ url_for('carrinho.remover_do_carrinho', produto_id=item.produto.id) }}">
+                    <button type="submit">Remover</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+        <h2>Total: R$ {{ total }}</h2>
+        <a href="{{ url_for('carrinho.checkout') }}">Finalizar Compra</a>
+        {% else %}
+        <p>Seu carrinho está vazio!</p>
+        {% endif %}
+    </main>
+</body>
+</html>

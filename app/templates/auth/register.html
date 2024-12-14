@@ -7,28 +7,37 @@
     <link rel="stylesheet" href="/static/css/base.css">
 </head>
 <body>
-    <h1>Registro</h1>
-    <form method="POST" action="{{ url_for('auth.register') }}">
-        <label for="username">Usuário:</label>
-        <input type="text" name="username" id="username" required>
-        <br>
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" required>
-        <br>
-        <label for="confirm_password">Confirmar Senha:</label>
-        <input type="password" name="confirm_password" id="confirm_password" required>
-        <br>
-        <button type="submit">Registrar</button>
-    </form>
-    <p>Já tem uma conta? <a href="{{ url_for('auth.login') }}">Faça login aqui</a>.</p>
-    {% with messages = get_flashed_messages(with_categories=True) %}
-        {% if messages %}
-            <ul>
-                {% for category, message in messages %}
+    <header>
+        <h1>Registrar-se</h1>
+    </header>
+    <main>
+        <form method="POST" action="{{ url_for('auth.register') }}">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Seu email" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" placeholder="Crie uma senha" required>
+
+            <label for="confirmar_senha">Confirmar Senha:</label>
+            <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha" required>
+
+            <button type="submit">Registrar</button>
+        </form>
+
+        <p>Já tem uma conta? <a href="{{ url_for('auth.login') }}">Faça login aqui</a>.</p>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
                     <li class="{{ category }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </main>
 </body>
 </html>

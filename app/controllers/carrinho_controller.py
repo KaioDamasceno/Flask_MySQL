@@ -8,7 +8,7 @@ carrinho = []
 @carrinho_bp.route("/", methods=["GET"])
 def visualizar_carrinho():
     total = sum(item["preco"] for item in carrinho)
-    return render_template("carrinho.html", carrinho=carrinho, total=total)
+    return render_template("view_cart.html", carrinho=carrinho, total=total)
 
 @carrinho_bp.route("/adicionar/<int:produto_id>", methods=["POST"])
 def adicionar_ao_carrinho(produto_id):
